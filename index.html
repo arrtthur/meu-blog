@@ -1,15 +1,19 @@
 ---
 layout: default
 ---
-
 <div class="grid">
     {% for post in site.posts %}
-    <div class="post" onclick="expandPost(this)">
+    <div class="post" data-id="{{ post.id }}" onclick="openModal('{{ post.id }}')">
         <h2>{{ post.title }}</h2>
         <p>{{ post.excerpt }}</p>
-        <div class="content" style="display: none;">
-            {{ post.content }}
-        </div>
     </div>
     {% endfor %}
+</div>
+
+<!-- Modal de exibição do conteúdo do post -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+    </div>
 </div>
