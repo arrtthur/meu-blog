@@ -5,6 +5,7 @@ body {
     padding: 0;
     background: #f7f7f7;
     color: #333;
+    animation: fadeIn 1s ease-out; /* Fade-in suave ao carregar */
 }
 
 /* Cabeçalho */
@@ -37,17 +38,11 @@ main {
     margin: 0 auto;
 }
 
-/* Link envolvendo o post */
-.post-link {
-    text-decoration: none; /* Remove sublinhado */
-    color: inherit; /* Herda a cor do texto */
-}
-
 /* Estilo do post */
 .post {
-    background: #fff;
+    background: #fffbe6; /* Cor de fundo semelhante a um post-it */
     border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Sombra inicial */
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
@@ -55,13 +50,14 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
-/* Efeito ao passar o mouse: Eleva o post */
+/* Efeito ao passar o mouse */
 .post:hover {
-    transform: translateY(-8px); /* Eleva o post ao passar o mouse */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
-    background-color: #f9f9f9; /* Muda a cor ao passar o mouse */
+    background-color: #fff3b3; /* Cor ao passar o mouse */
+    transform: translateY(-6px); /* Elevação */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
 }
 
 /* Títulos dos posts */
@@ -79,23 +75,37 @@ main {
     font-size: 1rem;
 }
 
-/* Adicionando bordas arredondadas e sombras para o efeito de post-it */
-.post {
-    border-radius: 12px; /* Bordas arredondadas */
-    background-color: #fffbe6; /* Cor de fundo suave, como post-it */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+/* Conteúdo detalhado (escondido por padrão) */
+.post .content {
+    display: none;
+    margin-top: 10px;
+    color: #333;
 }
 
-/* Efeito de elevação suave ao passar o mouse */
-.post:hover {
-    background-color: #fff3b3; /* Muda a cor para algo mais forte ao passar o mouse */
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+/* Estado expandido da nota */
+.post.expanded {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: 10; /* Garante que a nota expandida esteja sobre as outras */
+    background-color: #fff3b3; /* Cor de fundo mais forte */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra destacada */
+    transform: scale(1.05); /* Expansão leve */
+    padding: 30px;
+    overflow: auto;
 }
 
-/* Animação suave de fade-in no corpo */
-body {
-    animation: fadeIn 1s ease-out;
+/* Mostrar conteúdo detalhado na expansão */
+.post.expanded .content {
+    display: block;
+}
+
+/* Esconde as outras notas quando uma está expandida */
+.post:not(.expanded) {
+    opacity: 0.4;
+    pointer-events: none;
+    transform: scale(0.95);
 }
 
 /* Efeito de fade-in */
@@ -106,9 +116,4 @@ body {
     100% {
         opacity: 1;
     }
-}
-
-/* Adicionando um efeito sutil ao passar o mouse nos links */
-.post-link:hover .post {
-    transform: scale(1.03);
 }
