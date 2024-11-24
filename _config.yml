@@ -1,4 +1,4 @@
-title: Meu Blog
-description: "Blog estilo Google Keep"
-baseurl: "/meu-blog"
-theme: minima
+title: Meu Blog de Post-its
+description: Um blog moderno inspirado no Google Keep.
+baseurl: ""
+url: "https://arrtthur.github.io/meu-blog"
