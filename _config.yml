@@ -1,4 +1,4 @@
-baseurl: "/meu-blog"  # Adicione o nome do repositório aqui
-title: "Meu Blog"
-description: "Blog de exemplo"
-url: "https://arrtthur.github.io"
+title: Meu Blog de Post-its
+description: Um blog moderno inspirado no Google Keep.
+baseurl: ""
+url: "https://arrtthur.github.io/meu-blog"
