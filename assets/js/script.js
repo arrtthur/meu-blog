@@ -1,14 +1,16 @@
-function expandPost(post) {
-    // Verifica se a nota já está expandida
-    const isExpanded = post.classList.contains("expanded");
-
-    // Recolhe todas as notas antes
-    document.querySelectorAll(".post").forEach((p) => {
-        p.classList.remove("expanded");
+function expandPost(postElement) {
+    // Esconde todas as outras notas
+    document.querySelectorAll('.post .content').forEach(content => {
+        if (content !== postElement.querySelector('.content')) {
+            content.style.display = 'none';
+        }
     });
 
-    // Expande a nota se ela não estava expandida
-    if (!isExpanded) {
-        post.classList.add("expanded");
+    // Alterna a exibição do conteúdo da nota clicada
+    const content = postElement.querySelector('.content');
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+    } else {
+        content.style.display = 'none';
     }
 }
