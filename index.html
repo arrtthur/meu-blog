@@ -1,13 +1,15 @@
 ---
 layout: default
 ---
+
 <div class="grid">
     {% for post in site.posts %}
-    <a href="{{ site.baseurl }}{{ post.url }}" class="post-link">
-        <div class="post">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.excerpt }}</p>
+    <div class="post" onclick="expandPost(this)">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.excerpt }}</p>
+        <div class="content">
+            {{ post.content }}
         </div>
-    </a>
+    </div>
     {% endfor %}
 </div>
