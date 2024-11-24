@@ -1,0 +1,4 @@
+title: Meu Blog
+description: "Blog estilo Google Keep"
+baseurl: "/meu-blog"
+theme: minima
