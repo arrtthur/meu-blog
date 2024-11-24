@@ -33,3 +33,13 @@ main {
 .post:hover {
     transform: scale(1.05);
 }
+
+.post-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-link:hover .post {
+    transform: scale(1.05);
+}
+
