@@ -46,4 +46,69 @@ main {
 /* Estilo do post */
 .post {
     background: #fff;
-    border-rad
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efeito ao passar o mouse: Eleva o post */
+.post:hover {
+    transform: translateY(-8px); /* Eleva o post ao passar o mouse */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+    background-color: #f9f9f9; /* Muda a cor ao passar o mouse */
+}
+
+/* Títulos dos posts */
+.post h2 {
+    margin: 0 0 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Resumo dos posts */
+.post p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Adicionando bordas arredondadas e sombras para o efeito de post-it */
+.post {
+    border-radius: 12px; /* Bordas arredondadas */
+    background-color: #fffbe6; /* Cor de fundo suave, como post-it */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Efeito de elevação suave ao passar o mouse */
+.post:hover {
+    background-color: #fff3b3; /* Muda a cor para algo mais forte ao passar o mouse */
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+/* Animação suave de fade-in no corpo */
+body {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Efeito de fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Adicionando um efeito sutil ao passar o mouse nos links */
+.post-link:hover .post {
+    transform: scale(1.03);
+}
